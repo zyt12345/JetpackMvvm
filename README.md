@@ -45,18 +45,21 @@
 ### 🔗 下载渠道
 
 - [🌍 GitHub 下载](https://github.com/hegaojian/JetpackMvvm/releases/download/2.0.0/app-release.apk)
-- [🚀 第三方下载（推荐）](https://www.pgyer.com/jjbeautiful)
+- [🚀 第三方下载](https://www.pgyer.com/jjbeautiful)
 
 ### 📱 扫码下载（推荐）
-
 <p align="left">
-  <img src="https://github.com/user-attachments/assets/288a73f1-2e10-404a-8fc5-2acb9b1799ed" width="300" height="300" alt="JetpackMvvm Demo 二维码"/>
+  <img src="https://github.com/user-attachments/assets/288a73f1-2e10-404a-8fc5-2acb9b1799ed" width="150" height="150" alt="JetpackMvvm Demo 二维码"/>
 </p>
 
+## 🚀 版本依赖
 ```gradle
 dependencies {
     implementation 'com.github.hegaojian:JetpackMvvm:2.0.1'
 }
+```
+``` 
+JetpackMvvm.init(application)
 ```
 ## 📖 目录导航
 
@@ -72,7 +75,12 @@ dependencies {
 
 - 💡 欢迎通过 [Issues](https://github.com/hegaojian/JetpackMvvm/issues) 提交问题或建议  
 - ❤️ 如果这个框架帮助到你，请帮忙点一个 ⭐ 支持一下  
-- 📫 QQ交流群：419581249
+
+| QQ交流群 | 个人微信 | 个人QQ |
+|------|------|------|
+| <img width="150" height="150" src="https://github.com/user-attachments/assets/faf8684d-790a-4b3d-8d21-6221a350d639" alt="QQ群二维码"/> | <img width="150" height="150" src="https://github.com/user-attachments/assets/ef751c37-373e-45c5-b37c-f1d523d3aa67" alt="微信二维码"/>  |<img width="150" height="150" src="https://github.com/user-attachments/assets/faf8684d-790a-4b3d-8d21-6221a350d639" alt="QQ群二维码"/>  |
+
+
 
 ---
 ## License
