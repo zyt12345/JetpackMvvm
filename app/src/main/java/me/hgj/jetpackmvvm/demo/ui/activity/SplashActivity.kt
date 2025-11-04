@@ -8,6 +8,7 @@ import com.zhpan.bannerview.BannerViewPager
 import me.hgj.jetpackmvvm.base.vm.BaseViewModel
 import me.hgj.jetpackmvvm.demo.R
 import me.hgj.jetpackmvvm.demo.app.core.base.BaseActivity
+import me.hgj.jetpackmvvm.demo.app.core.util.PolicyUtil
 import me.hgj.jetpackmvvm.demo.app.core.widget.banner.WelcomeBannerAdapter
 import me.hgj.jetpackmvvm.demo.databinding.ActivityWelcomeBinding
 import me.hgj.jetpackmvvm.ext.util.Cache
@@ -44,26 +45,28 @@ class SplashActivity : BaseActivity<BaseViewModel, ActivityWelcomeBinding>() {
         // 2. 设置导航栏颜色
         window.navigationBarColor = getColorExt(R.color.colorPrimary)
         mViewPager = mBind.bannerView as BannerViewPager<String>
-        if (isFirst) {
-            //是第一次打开App 显示引导页
-            mBind.welcomeImage.gone()
-            mViewPager.apply {
-                adapter = WelcomeBannerAdapter()
-                registerLifecycleObserver(lifecycle)
-                registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-                    override fun onPageSelected(position: Int) {
-                        super.onPageSelected(position)
-                        mBind.welcomeJoin.visibleOrGone(position == resList.size - 1)
-                    }
-                })
-                create(resList.toList())
+        PolicyUtil.showPolicyDialog(this) {
+            if (isFirst) {
+                //是第一次打开App 显示引导页
+                mBind.welcomeImage.gone()
+                mViewPager.apply {
+                    adapter = WelcomeBannerAdapter()
+                    registerLifecycleObserver(lifecycle)
+                    registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                        override fun onPageSelected(position: Int) {
+                            super.onPageSelected(position)
+                            mBind.welcomeJoin.visibleOrGone(position == resList.size - 1)
+                        }
+                    })
+                    create(resList.toList())
+                }
+            } else {
+                //不是第一次打开App 0.3秒后自动跳转到主页
+                mBind.welcomeImage.visible()
+                mViewPager.postDelayed({
+                    toMain()
+                }, 300)
             }
-        } else {
-            //不是第一次打开App 0.3秒后自动跳转到主页
-            mBind.welcomeImage.visible()
-            mViewPager.postDelayed({
-                toMain()
-            }, 300)
         }
     }
 
@@ -78,7 +81,9 @@ class SplashActivity : BaseActivity<BaseViewModel, ActivityWelcomeBinding>() {
         openActivity<MainActivity>()
         finish()
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-
     }
+
+
+
 
 }

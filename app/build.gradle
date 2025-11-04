@@ -79,9 +79,11 @@ dependencies {
     implementation libs.androidx.swiperefreshlayout
     implementation libs.androidx.preference.ktx
 
-    // JetpackMvvm 框架不再引入navigation，大家想用navigation的话就自己引入，我这里是历史遗留用的是navigation，所以demo示例引入了
+    // JetpackMvvm 框架不再引入navigation，大家想用navigation的话就自己引入，我这里是历史遗留原因用的是navigation，所以demo还是示例引入了
     implementation libs.androidx.navigation.fragment.ktx
     implementation libs.androidx.navigation.ui.ktx
+
+    implementation libs.androidx.splashscreen
     //项目核心框架
     implementation project(path: ':JetpackMvvm')
 //    implementation libs.jetpackmvvm
@@ -111,5 +113,7 @@ dependencies {
     implementation libs.autosize
     //防崩溃
     implementation libs.customactivityoncrash
+    //富文本工具
+    implementation libs.spannable
     //================================demo项目相关使用到的库 end ===========================//
 }

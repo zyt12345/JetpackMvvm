@@ -2,40 +2,48 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
+        <!-- 主色调 -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="md_corner_radius">12dp</item>
-        <item name="android:windowLightStatusBar">false</item>
-        <!-- Status bar color. -->
-        <!-- Customize your theme here. -->
+
+        <!-- 状态栏 -->
+        <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowTranslucentStatus">false</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/colorPrimary</item>
-        <!-- Customize your theme here. -->
-        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
-        <!-- 关闭 RecyclerView NestedScrollView ViewPager 水波纹效果 -->
-        <item name="android:overScrollMode">never</item>
-        <!-- 窗口背景颜色 -->
-        <item name="android:windowBackground">@color/white</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+
+        <!-- 导航栏 -->
         <item name="android:navigationBarColor">@color/white</item>
 
-        <!-- 默认字体大小，Button、TextView 的字体大小 -->
-        <item name="android:textSize">14sp</item>
+        <!-- 背景 -->
+        <item name="android:windowBackground">@color/windowBackground</item>
 
-        <!--修改水波纹颜色-->
-        <item name="colorControlHighlight">@color/config_color_separator</item>
+        <!-- 文字颜色 -->
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="android:textColorSecondary">@color/secondary_text</item>
+        <item name="android:textColorHint">@color/hint_text</item>
 
-        <item name="ui_general_shadow_alpha">0.25</item>
-        <item name="ui_general_shadow_elevation">14dp</item>
+        <!-- 控件样式 -->
+        <item name="md_corner_radius">12dp</item>
         <item name="ui_radius">10dp</item>
 
+        <!-- 交互效果 -->
+        <item name="colorControlHighlight">@color/ripple_color</item>
+        <item name="android:overScrollMode">never</item>
+
+        <!-- 阴影 -->
+        <item name="ui_general_shadow_alpha">0.25</item>
+        <item name="ui_general_shadow_elevation">14dp</item>
+
+        <!-- 透明度 -->
         <item name="ui_alpha_pressed">0.6</item>
         <item name="ui_alpha_disabled">0.6</item>
+
+        <!-- 动画 -->
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
     </style>
 
-    <style name="FullscreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimary</item>

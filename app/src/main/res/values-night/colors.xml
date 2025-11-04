@@ -1,0 +1,34 @@
+<resources>
+    <!-- 主色调（稍微调暗） -->
+    <color name="colorPrimary">#1976D2</color>
+    <color name="colorPrimaryDark">#0D47A1</color>
+    <color name="colorAccent">#1976D2</color>
+    <color name="titleBarColor">#121212</color>
+    <color name="colorPrimaryTransparent">#8d1976D2</color>
+
+    <!-- 语义化颜色 -->
+    <color name="primary_text">#FFFFFFFF</color>
+    <color name="secondary_text">#B3FFFFFF</color>
+    <color name="hint_text">#80FFFFFF</color>
+    <color name="divider_color">#1FFFFFFF</color>
+
+    <!-- 背景色 -->
+    <color name="windowBackground">#121212</color>
+    <color name="surface">#1E1E1E</color>
+    <color name="background_secondary">#2D2D2D</color>
+
+    <!-- 基础颜色 -->
+    <color name="white">#121212</color>
+    <color name="transparent">#00000000</color>
+    <color name="black">#FFFFFF</color>
+
+    <!-- 功能颜色 -->
+    <color name="error_color">#CF6679</color>
+    <color name="success_color">#81C784</color>
+    <color name="warning_color">#FFB74D</color>
+    <color name="chinaHoliDay">#ff5252</color>
+
+    <!-- 状态颜色 -->
+    <color name="pressed_state">#1AFFFFFF</color>
+    <color name="ripple_color">#1AFFFFFF</color>
+</resources>

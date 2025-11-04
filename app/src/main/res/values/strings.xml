@@ -29,4 +29,5 @@
     <string name="open_project">special thanks</string>
     <string name="open_project_tips">open source libraries used in the project</string>
     <string name="error_occurred">Sorry, the app crashed. \n Please take the copied error log to the author and ask them to V you 50</string>
+    <string name="agreement_tips">1.我们会遵循隐私政策收集、使用信息，但不会仅因同意本隐私政策而采用强制捆绑的方式收集信息;\n2.在仅浏览时，为保障服务所必需，我们会收集设备信息与日志信息用于咨询推送\n3.GPS、摄像头、相册权限均不会默认开，只有经过明示授权才会在为实现功能或服务时使用，不会在功能或服务不需要时而通过您授权的权限收集信息。\n\n您可以查看完整版 《隐私政策》和 《用户授权协议》</string>
 </resources>

@@ -10,7 +10,7 @@
         android:id="@+id/viewpager_linear"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="@color/titleBarColor"
         android:padding="2dp">
 
         <androidx.appcompat.widget.Toolbar

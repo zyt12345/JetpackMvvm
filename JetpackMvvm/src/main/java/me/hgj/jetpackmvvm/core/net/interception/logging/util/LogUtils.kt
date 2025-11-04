@@ -11,7 +11,7 @@ import me.hgj.jetpackmvvm.ext.util.XLog
  */
 class LogUtils private constructor() {
     companion object {
-        private const val DEFAULT_TAG = "MvvmHelper"
+        private const val DEFAULT_TAG = "JetpackMvvm"
         private var isLog = true
         fun isLog(): Boolean {
             return isLog

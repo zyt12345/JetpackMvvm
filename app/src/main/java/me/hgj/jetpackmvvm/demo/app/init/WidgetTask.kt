@@ -4,12 +4,12 @@ import android.app.Application
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.ClassicsHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
+import me.hgj.jetpackmvvm.core.init.BaseInitTask
 import me.hgj.jetpackmvvm.demo.R
 import me.hgj.jetpackmvvm.demo.app.core.widget.loadCallBack.LoadingCallback
 import me.hgj.jetpackmvvm.ext.util.getColorExt
 import me.hgj.jetpackmvvm.widget.loadsir.callback.SuccessCallback
 import me.hgj.jetpackmvvm.widget.loadsir.core.LoadSir
-import me.hgj.jetpackmvvm.core.init.InitTask
 import me.hgj.jetpackmvvm.widget.state.BaseEmptyCallback
 import me.hgj.jetpackmvvm.widget.state.BaseErrorCallback
 
@@ -22,7 +22,7 @@ class WidgetTask(
     override val name: String = "WidgetTask",
     override val runOnMainThread: Boolean = false,
     override val isBlocking: Boolean = false
-) : InitTask {
+) : BaseInitTask() {
     override suspend fun init(app: Application) {
         SmartRefreshLayout.setDefaultRefreshInitializer { context, layout ->
             //设置 SmartRefreshLayout 通用配置

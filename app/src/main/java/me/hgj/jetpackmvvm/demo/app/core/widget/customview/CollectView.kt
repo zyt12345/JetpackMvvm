@@ -35,7 +35,6 @@ class CollectView @JvmOverloads constructor(context: Context, attrs: AttributeSe
     override fun onTouch(v: View, event: MotionEvent): Boolean {
         when (event.action) {
             MotionEvent.ACTION_UP ->{
-                //震动一下
                 if(UserManager.isLoggedIn){
                     onCollectViewClickListener?.onClick(this)
                 }else{

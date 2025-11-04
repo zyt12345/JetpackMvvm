@@ -10,7 +10,6 @@ import me.hgj.jetpackmvvm.demo.app.core.ext.nav
 import me.hgj.jetpackmvvm.demo.app.core.ext.onRefresh
 import me.hgj.jetpackmvvm.demo.app.core.util.LocalDataUtil
 import me.hgj.jetpackmvvm.demo.app.core.util.UserManager
-import me.hgj.jetpackmvvm.demo.data.model.entity.BannerResponse
 import me.hgj.jetpackmvvm.demo.data.model.entity.UserInfo
 import me.hgj.jetpackmvvm.demo.data.vm.IntegralViewModel
 import me.hgj.jetpackmvvm.demo.data.vm.UserViewModel
@@ -76,7 +75,7 @@ class MeFragment : BaseFragment<UserViewModel, FragmentMeBinding>() {
         }
         mBind.urlLayout.clickNoRepeat {
             //开源网站
-            WebActivity.start(banner = BannerResponse(title = "玩Android网站",url = "https://www.wanandroid.com/"))
+            WebActivity.start(title = "玩Android网站", url = "https://www.wanandroid.com/")
         }
         mBind.joinLayout.clickNoRepeat {
             //加入我们
@@ -108,12 +107,12 @@ class MeFragment : BaseFragment<UserViewModel, FragmentMeBinding>() {
     }
 
     private fun refreshIntegral() {
-        if(!UserManager.isLoggedIn) {
+        if (!UserManager.isLoggedIn) {
             mBind.meSwipe.isRefreshing = false
             return
         }
         mBind.meSwipe.isRefreshing = true
-        integralVm.getIntegralData().obs(viewLifecycleOwner)  {
+        integralVm.getIntegralData().obs(viewLifecycleOwner) {
             onSuccess {
                 mBind.meSwipe.isRefreshing = false
                 mBind.userInfo.text = "id：${it.userId}　排名：${it.rank}"

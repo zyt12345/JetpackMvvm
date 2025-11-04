@@ -9,6 +9,7 @@ glide = "5.0.5"
 kotlin = "2.2.0"
 coreKtx = "1.17.0"
 appcompat = "1.7.1"
+splashscreen = "1.0.1"
 magicindicator = "1.7.0"
 material = "1.13.0"
 activity = "1.10.1"
@@ -39,6 +40,7 @@ immersionbar =  "3.2.2"
 permissions =  "26.5"
 brv = "1.5.8"
 backgroundlibrary = "1.7.6"
+spannable = "1.2.7"
 
 [libraries]
 agentweb = { module = "com.just.agentweb:agentweb", version.ref = "agentweb" }
@@ -50,6 +52,7 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
 androidx-preference-ktx = { module = "androidx.preference:preference-ktx", version.ref = "preferenceKtx" }
+androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashscreen" }
 androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
 autosize = { module = "me.jessyan:autosize", version.ref = "autosize" }
 customactivityoncrash = { module = "cat.ereza:customactivityoncrash", version.ref = "customactivityoncrash" }
@@ -86,6 +89,7 @@ dialog-bootomsheets = { module = "com.afollestad.material-dialogs:bottomsheets",
 dialog-lifecycle = { module = "com.afollestad.material-dialogs:lifecycle", version.ref = "dialog" }
 immersionbar = { module = "com.geyifeng.immersionbar:immersionbar", version.ref = "immersionbar" }
 permissions = { module = "com.github.getActivity:XXPermissions", version.ref = "permissions" }
+spannable = { module = "com.github.liangjingkanji:spannable", version.ref = "spannable" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

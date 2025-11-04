@@ -1,10 +1,9 @@
 package me.hgj.jetpackmvvm.demo.app
 
 import android.app.Application
-import android.content.Context
-import androidx.multidex.MultiDex
 import me.hgj.jetpackmvvm.core.JetpackMvvm
 import me.hgj.jetpackmvvm.core.init.InitTaskManager
+import me.hgj.jetpackmvvm.demo.app.core.util.ThemeUtil
 import me.hgj.jetpackmvvm.demo.app.init.NetTask
 import me.hgj.jetpackmvvm.demo.app.init.UtilTask
 import me.hgj.jetpackmvvm.demo.app.init.WidgetTask
@@ -28,6 +27,7 @@ class App : Application() {
                 .register(UtilTask())
                 .register(WidgetTask())
                 .execute(this)
+            ThemeUtil.changeTheme()
         }
     }
 }

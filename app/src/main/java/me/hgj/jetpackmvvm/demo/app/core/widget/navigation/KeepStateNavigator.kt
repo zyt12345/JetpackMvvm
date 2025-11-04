@@ -12,6 +12,11 @@ import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
 import java.util.ArrayDeque
 
+/**
+ * 修正版 KeepStateNavigator
+ * 支持夜间模式切换（Activity 重建）后状态恢复
+ * 修复 Fragment 透明层和返回异常问题
+ */
 @Navigator.Name("fragment")
 class KeepStateNavigator(
     private val context: Context,
@@ -20,7 +25,7 @@ class KeepStateNavigator(
 ) : Navigator<KeepStateNavigator.Destination>() {
 
     private val backStack = ArrayDeque<String>()
-    private val animationMap = mutableMapOf<String, AnimInfo>() // 记录动画配置
+    private val animationMap = mutableMapOf<String, AnimInfo>()
     private val TAG = "KeepStateNavigator"
 
     override fun createDestination(): Destination = Destination(this)
@@ -35,7 +40,7 @@ class KeepStateNavigator(
         val transaction = fragmentManager.beginTransaction()
         transaction.setReorderingAllowed(true)
 
-        // ✅ 读取动画配置并缓存
+        // ---------- 处理动画 ----------
         var animInfo = AnimInfo()
         if (navOptions != null) {
             animInfo = AnimInfo(
@@ -44,7 +49,6 @@ class KeepStateNavigator(
                 popEnterAnim = navOptions.popEnterAnim.takeIf { it != -1 } ?: 0,
                 popExitAnim = navOptions.popExitAnim.takeIf { it != -1 } ?: 0
             )
-
             transaction.setCustomAnimations(
                 animInfo.enterAnim,
                 animInfo.exitAnim,
@@ -52,9 +56,17 @@ class KeepStateNavigator(
                 animInfo.popExitAnim
             )
         }
-        animationMap[tag] = animInfo // 缓存当前 fragment 的动画配置
+        animationMap[tag] = animInfo
 
-        // 隐藏当前 Fragment
+        // ---------- 修复主题切换后透明层残留 ----------
+        if (backStack.isEmpty() && fragmentManager.fragments.isNotEmpty()) {
+            fragmentManager.beginTransaction().apply {
+                fragmentManager.fragments.forEach { remove(it) }
+            }.commitNowAllowingStateLoss()
+            animationMap.clear()
+        }
+
+        // ---------- 隐藏当前 fragment ----------
         backStack.lastOrNull()?.let { currentTag ->
             fragmentManager.findFragmentByTag(currentTag)?.let { currentFragment ->
                 transaction.hide(currentFragment)
@@ -62,7 +74,7 @@ class KeepStateNavigator(
             }
         }
 
-        // 判断是否需要重新创建 Fragment（避免复用旧的）
+        // ---------- 创建 / 复用 fragment ----------
         var fragment = fragmentManager.findFragmentByTag(tag)
         val shouldRecreate = fragment != null && navOptions?.popUpToId == destination.id
         if (shouldRecreate) {
@@ -82,6 +94,7 @@ class KeepStateNavigator(
             transaction.show(fragment)
         }
 
+        // ---------- 设置主 fragment ----------
         transaction.setPrimaryNavigationFragment(fragment)
         transaction.setMaxLifecycle(fragment, Lifecycle.State.RESUMED)
         transaction.commitNowAllowingStateLoss()
@@ -106,7 +119,7 @@ class KeepStateNavigator(
         val transaction = fragmentManager.beginTransaction()
         transaction.setReorderingAllowed(true)
 
-        // ✅ 从缓存中取动画配置
+        // 从缓存中取动画配置
         animationMap[currentTag]?.let { anim ->
             if (anim.popEnterAnim != 0 || anim.popExitAnim != 0) {
                 transaction.setCustomAnimations(anim.popEnterAnim, anim.popExitAnim)
@@ -116,9 +129,7 @@ class KeepStateNavigator(
         val currentFragment = fragmentManager.findFragmentByTag(currentTag)
         val previousFragment = fragmentManager.findFragmentByTag(previousTag)
 
-        // remove 当前 fragment
         currentFragment?.let { transaction.remove(it) }
-
         previousFragment?.let {
             transaction.show(it)
             transaction.setMaxLifecycle(it, Lifecycle.State.RESUMED)
@@ -128,6 +139,20 @@ class KeepStateNavigator(
         transaction.commitNowAllowingStateLoss()
         Log.d(TAG, "popBackStack → $backStack")
         return true
+    }
+
+    // ---------- 保存 / 恢复状态 ----------
+    override fun onSaveState(): Bundle {
+        return Bundle().apply {
+            putStringArrayList("backStack", ArrayList(backStack))
+        }
+    }
+
+    override fun onRestoreState(savedState: Bundle) {
+        val restored = savedState.getStringArrayList("backStack")
+        backStack.clear()
+        restored?.let { backStack.addAll(it) }
+        Log.d(TAG, "onRestoreState → $backStack")
     }
 
     @NavDestination.ClassType(Fragment::class)
@@ -143,7 +168,6 @@ class KeepStateNavigator(
         }
     }
 
-    // ✅ 动画信息封装
     data class AnimInfo(
         val enterAnim: Int = 0,
         val exitAnim: Int = 0,

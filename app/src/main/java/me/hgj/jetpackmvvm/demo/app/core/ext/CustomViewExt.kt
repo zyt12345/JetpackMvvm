@@ -6,18 +6,13 @@ import android.graphics.Color
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.view.inputmethod.InputMethodManager
-import android.widget.FrameLayout
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import me.hgj.jetpackmvvm.core.appContext
 import me.hgj.jetpackmvvm.demo.R
-import me.hgj.jetpackmvvm.demo.app.core.util.SettingUtil
 import me.hgj.jetpackmvvm.demo.app.core.widget.viewpager.ScaleTransitionPagerTitleView
 import me.hgj.jetpackmvvm.demo.ui.fragment.home.HomeFragment
 import me.hgj.jetpackmvvm.demo.ui.fragment.me.MeFragment
@@ -49,7 +44,6 @@ fun SwipeRefreshLayout.onRefresh(onRefresh:() -> Unit){
  * 初始化普通的toolbar 只设置标题
  */
 fun Toolbar.init(titleStr: String = ""): Toolbar {
-    setBackgroundColor(SettingUtil.getColor(appContext))
     setNavigationIcon(null)
     title = titleStr
     return this
@@ -63,7 +57,6 @@ fun Toolbar.initClose(
     backImg: Int = R.drawable.ic_back,
     onBack: (toolbar: Toolbar) -> Unit
 ): Toolbar {
-    setBackgroundColor(SettingUtil.getColor(appContext))
     title = titleStr.toHtml()
     setNavigationIcon(backImg)
     setNavigationOnClickListener { onBack.invoke(this) }

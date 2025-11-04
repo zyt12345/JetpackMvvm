@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:textColor="@color/colorBlack333"
+            android:textColor="@color/primary_text"
             android:textSize="18dp"
             android:textStyle="bold"
             tools:text="99+" />
@@ -36,7 +36,7 @@
             android:layout_weight="1"
             android:ellipsize="end"
             android:lines="1"
-            android:textColor="@color/colorBlack666"
+            android:textColor="@color/secondary_text"
             android:textSize="16dp"
             tools:text="时长2年半的练习生" />
 
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:textColor="@color/textHint"
+            android:textColor="@color/hint_text"
             android:textSize="16dp"
             android:textStyle="bold"
             tools:text="100" />

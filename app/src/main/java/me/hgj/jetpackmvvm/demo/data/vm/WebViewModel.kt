@@ -13,7 +13,7 @@ class WebViewModel : BaseViewModel() {
     var collect = false
 
     //收藏的Id
-    var ariticleId = ""
+    var articleId = ""
 
     //标题
     var showTitle: String = ""

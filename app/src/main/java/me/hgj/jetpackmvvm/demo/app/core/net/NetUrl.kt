@@ -121,5 +121,12 @@ object NetUrl {
         const val ADD_SHARE_ARTICLE = "lg/user_article/add/json"
     }
 
+    object Agreement{
+        /** 服务协议 */
+        const val TERMS_OF_SERVICE = "https://rule.tencent.com/rule/46a15f24-e42c-4cb6-a308-2347139b1201"
+        /** 隐私政策 */
+        const val PRIVACY_POLICY = "https://rule.tencent.com/rule/46a15f24-e42c-4cb6-a308-2347139b1201"
+    }
+
 
 }

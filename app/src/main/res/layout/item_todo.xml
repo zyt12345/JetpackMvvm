@@ -61,7 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:textColor="@color/colorBlack666"
+                    android:textColor="@color/secondary_text"
                     android:textSize="12dp"
                     tools:text="2019-09-04" />
 
@@ -81,7 +81,7 @@
                 android:layout_height="0.5dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:background="@color/backgroundGrey" />
+                android:background="@color/background_secondary" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/item_todo_content"
@@ -93,7 +93,7 @@
                 android:layout_marginBottom="12dp"
                 android:lineSpacingMultiplier="1.2"
                 android:minLines="3"
-                android:textColor="@color/colorBlack666"
+                android:textColor="@color/secondary_text"
                 android:textSize="14dp"
                 tools:text="来一起打王者啊？我关羽6双鞋，跑的贼鸡儿快" />
         </LinearLayout>

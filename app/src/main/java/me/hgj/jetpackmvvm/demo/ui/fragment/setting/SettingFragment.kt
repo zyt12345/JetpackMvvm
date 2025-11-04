@@ -1,5 +1,6 @@
 package me.hgj.jetpackmvvm.demo.ui.fragment.setting
 
+import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,10 +10,12 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.TwoStatePreference
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
+import com.afollestad.materialdialogs.list.listItemsSingleChoice
 import com.drake.brv.utils.setup
 import me.hgj.jetpackmvvm.demo.R
 import me.hgj.jetpackmvvm.demo.app.core.util.CacheDataManager
 import me.hgj.jetpackmvvm.demo.app.core.util.LocalDataUtil
+import me.hgj.jetpackmvvm.demo.app.core.util.ThemeUtil
 import me.hgj.jetpackmvvm.demo.app.core.util.UserManager
 import me.hgj.jetpackmvvm.demo.data.model.CacheConfig
 import me.hgj.jetpackmvvm.demo.data.model.entity.BannerResponse
@@ -20,7 +23,6 @@ import me.hgj.jetpackmvvm.demo.databinding.LayoutOpenSourceProjectBinding
 import me.hgj.jetpackmvvm.demo.databinding.LayoutOpenSourceProjectItemBinding
 import me.hgj.jetpackmvvm.demo.ui.activity.WebActivity
 import me.hgj.jetpackmvvm.ext.util.getAppVersion
-import me.hgj.jetpackmvvm.ext.util.intent.openActivity
 import me.hgj.jetpackmvvm.ext.util.toast
 import me.hgj.jetpackmvvm.ext.view.showDialogMessage
 import me.hgj.jetpackmvvm.ext.view.vertical
@@ -33,11 +35,23 @@ import me.hgj.jetpackmvvm.ext.view.vertical
 class SettingFragment : PreferenceFragmentCompat(),
     SharedPreferences.OnSharedPreferenceChangeListener {
 
+    @SuppressLint("CheckResult")
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.root_preferences)
         initData()
         findPreference<Preference>("exit")?.isVisible = UserManager.isLoggedIn//未登录时，退出登录需要隐藏
-        findPreference<Preference>("open")?.setOnPreferenceClickListener { preference ->
+        findPreference<Preference>("theme")?.setOnPreferenceClickListener { preference ->
+            MaterialDialog(requireActivity())
+                .show {
+                    title(text = "设置主题")
+                    listItemsSingleChoice(items = listOf("跟随系统","浅色","深色"), initialSelection = CacheConfig.themeModel) { dialog, index, text ->
+                        CacheConfig.themeModel = index
+                        preference.summary = text
+                        ThemeUtil.changeTheme()
+                    }
+                    negativeButton(text = "取消")
+                    positiveButton(text = "确定")
+                }
             false
         }
         findPreference<Preference>("exit")?.setOnPreferenceClickListener { preference ->
@@ -82,11 +96,7 @@ class SettingFragment : PreferenceFragmentCompat(),
             false
         }
         findPreference<Preference>("project")?.setOnPreferenceClickListener {
-            val data = BannerResponse(
-                title = "一位练习时长两年半的菜虚鲲制作的玩安卓App",
-                url = findPreference<Preference>("project")?.summary.toString()
-            )
-            openActivity<WebActivity>("banner" to data)
+            WebActivity.start(title = "一位练习时长两年半的菜虚鲲制作的玩安卓App", url = findPreference<Preference>("project")?.summary.toString())
             false
         }
         findPreference<Preference>("open")?.setOnPreferenceClickListener {
@@ -106,7 +116,7 @@ class SettingFragment : PreferenceFragmentCompat(),
                         }
                         R.id.projectName.onClick {
                             val model = getModel<BannerResponse>()
-                            openActivity<WebActivity>("banner" to model)
+                            WebActivity.start(banner = model)
                         }
                     }.models = LocalDataUtil.openSourceProjects()
                     positiveButton(text = "关闭")
@@ -123,6 +133,11 @@ class SettingFragment : PreferenceFragmentCompat(),
             findPreference<TwoStatePreference>("top")?.isChecked = CacheConfig.showTop
             findPreference<Preference>("clearCache")?.summary = CacheDataManager.getTotalCacheSize(it)
             findPreference<Preference>("version")?.summary = "当前版本 " + it.getAppVersion()
+            findPreference<Preference>("theme")?.summary = when(CacheConfig.themeModel){
+                1 -> "浅色"
+                2 -> "深色"
+                else -> "跟随系统"
+            }
         }
     }
 

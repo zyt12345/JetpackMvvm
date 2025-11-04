@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical">
 
@@ -23,13 +22,13 @@
             <me.hgj.jetpackmvvm.widget.alpha.UIImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                app:ui_radius="999dp"
-                app:ui_shadowAlpha="1"
-                android:scaleType="centerCrop"
-                app:ui_shadowElevation="12dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="48dp"
-                android:src="@drawable/cxk" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/cxk"
+                app:ui_radius="999dp"
+                app:ui_shadowAlpha="1"
+                app:ui_shadowElevation="12dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,9 +58,9 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginEnd="6dp"
+                    android:src="@drawable/ic_clear"
                     android:visibility="invisible"
-                    tools:visibility="visible"
-                    android:src="@drawable/ic_clear" />
+                    tools:visibility="visible" />
             </LinearLayout>
 
             <LinearLayout
@@ -84,18 +83,18 @@
                     android:paddingLeft="12dp"
                     android:paddingRight="12dp"
                     android:textColor="@color/black"
-                    android:textSize="15sp"/>
-                
+                    android:textSize="15sp" />
+
                 <com.noober.background.view.BLCheckBox
                     android:id="@+id/pwdVisible"
                     android:layout_width="24dp"
-                    android:visibility="invisible"
-                    tools:visibility="visible"
                     android:layout_height="24dp"
                     android:layout_marginEnd="6dp"
+                    android:checked="false"
+                    android:visibility="invisible"
                     app:bl_checked_button_drawable="@drawable/ic_password_see_on"
                     app:bl_unChecked_button_drawable="@drawable/ic_password_see"
-                    android:checked="false" />
+                    tools:visibility="visible" />
 
             </LinearLayout>
 
@@ -105,12 +104,41 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="12dp"
-                app:bl_solid_color="@color/colorPrimary"
-                app:bl_corners_radius="4dp"
                 android:gravity="center"
                 android:text="登录"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                app:bl_corners_radius="4dp"
+                app:bl_solid_color="@color/colorPrimary" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <com.noober.background.view.BLImageView
+                    android:id="@+id/agreement"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    app:bl_selected_drawable="@drawable/ic_selected"
+                    app:bl_unSelected_drawable="@drawable/ic_un_selected" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/agreementTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="6dp"
+                    android:autoSizeMaxTextSize="15sp"
+                    android:autoSizeMinTextSize="10sp"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:text="已阅读并同意《服务协议》与《隐私政策》"
+                    android:textColor="@color/secondary_text" />
+            </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/toRegister"

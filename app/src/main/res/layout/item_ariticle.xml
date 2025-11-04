@@ -29,8 +29,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/item_imgselector"
-            android:textColor="@color/colorBlack666"
-            android:textSize="13dp"
+            android:textColor="@color/secondary_text"
+            android:textSize="13sp"
             tools:text="有何高见" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -43,7 +43,7 @@
             android:paddingRight="3dp"
             android:text="置顶"
             android:textColor="@android:color/holo_red_light"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/item_home_new"
@@ -55,7 +55,7 @@
             android:paddingRight="3dp"
             android:text="新"
             android:textColor="@android:color/holo_red_light"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/item_home_type1"
@@ -67,7 +67,7 @@
             android:paddingRight="3dp"
             android:text="问答"
             android:textColor="@android:color/holo_green_dark"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
 
         <View
             android:layout_width="0dp"
@@ -79,8 +79,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:textColor="@color/colorBlack666"
-            android:textSize="13dp"
+            android:textColor="@color/secondary_text"
+            android:textSize="13sp"
             tools:text="1小时前" />
     </LinearLayout>
 
@@ -93,8 +93,8 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:textColor="@color/colorBlack333"
-        android:textSize="14dp"
+        android:textColor="@color/primary_text"
+        android:textSize="14sp"
         android:textStyle="bold"
         tools:text="这是一个根据JetpackMvvm框架开发玩Android的一个APP" />
 
@@ -111,8 +111,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
-            android:textColor="@color/colorBlack666"
-            android:textSize="13dp"
+            android:textColor="@color/secondary_text"
+            android:textSize="13sp"
             tools:text="分类·项目" />
 
         <me.hgj.jetpackmvvm.demo.app.core.widget.customview.CollectView

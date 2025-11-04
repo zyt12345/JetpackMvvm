@@ -1,6 +1,9 @@
 package me.hgj.jetpackmvvm.ext.util
 
+import android.graphics.Rect
+import android.view.TouchDelegate
 import android.view.View
+import android.view.ViewGroup
 import kotlin.collections.forEach
 
 /**
@@ -8,6 +11,31 @@ import kotlin.collections.forEach
  * 时间　: 2020/11/18
  * 描述　:
  */
+
+
+fun View.click(action: (view: View) -> Unit) {
+    setOnClickListener {
+        action.invoke(it)
+    }
+}
+
+/**
+ * 扩大view的点击范围
+ */
+fun View.expandTouchArea(expandDp: Int) : View{
+    val parent = parent as? ViewGroup ?: return this
+    parent.post {
+        val rect = Rect()
+        getHitRect(rect)
+        val extend = expandDp.dp
+        rect.left -= extend
+        rect.top -= extend
+        rect.right += extend
+        rect.bottom += extend
+        parent.touchDelegate = TouchDelegate(rect, this)
+    }
+    return this
+}
 
 /**
  * 设置防止重复点击事件
@@ -22,6 +50,7 @@ fun setOnclickNoRepeat(vararg views: View?, interval: Long = 500, onClick: (View
         }
     }
 }
+
 
 /**
  * 防止重复点击事件 默认0.5秒内不可重复点击

@@ -141,7 +141,38 @@
                 android:text="注册并登录"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <com.noober.background.view.BLImageView
+                    android:id="@+id/agreement"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    app:bl_selected_drawable="@drawable/ic_selected"
+                    app:bl_unSelected_drawable="@drawable/ic_un_selected" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/agreementTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="6dp"
+                    android:autoSizeMaxTextSize="15sp"
+                    android:autoSizeMinTextSize="10sp"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:text="已阅读并同意《服务协议》与《隐私政策》"
+                    android:textColor="@color/secondary_text" />
+            </LinearLayout>
 
         </LinearLayout>
+
+
+
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

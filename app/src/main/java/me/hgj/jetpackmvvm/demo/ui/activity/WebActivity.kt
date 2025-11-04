@@ -55,6 +55,9 @@ class WebActivity : BaseActivity<WebViewModel, ActivityWebBinding>() {
 
     val collectUrl: CollectUrlResponse? by bundle()
 
+    val webTitle: String? by bundle()
+    val webUrl: String? by bundle()
+
     /** 收藏viewModel */
     val collectVm: CollectViewModel by getViewModel()
 
@@ -63,7 +66,7 @@ class WebActivity : BaseActivity<WebViewModel, ActivityWebBinding>() {
             banner: BannerResponse? = null,
             article: ArticleResponse? = null,
             collect: CollectResponse? = null,
-            collectUrl: CollectUrlResponse? = null
+            collectUrl: CollectUrlResponse? = null,
         ) {
             val extras = listOfNotNull(
                 banner?.let { "banner" to it },
@@ -73,12 +76,16 @@ class WebActivity : BaseActivity<WebViewModel, ActivityWebBinding>() {
             )
             (currentActivity as? AppCompatActivity)?.openActivity<WebActivity>(*extras.toTypedArray())
         }
+
+        fun start(url: String = "",title: String = "") {
+            (currentActivity as? AppCompatActivity)?.openActivity<WebActivity>("webUrl" to url,"webTitle" to title)
+        }
     }
 
     override fun initView(savedInstanceState: Bundle?) {
         //点击文章进来的
         article?.let {
-            mViewModel.ariticleId = it.id
+            mViewModel.articleId = it.id
             mViewModel.showTitle = it.title
             mViewModel.collect = it.collect
             mViewModel.url = it.link
@@ -86,7 +93,7 @@ class WebActivity : BaseActivity<WebViewModel, ActivityWebBinding>() {
         }
         //点击首页轮播图进来的
         banner?.let {
-            mViewModel.ariticleId = it.id
+            mViewModel.articleId = it.id
             mViewModel.showTitle = it.title
             //从首页轮播图 没法判断是否已经收藏过，所以直接默认没有收藏
             mViewModel.collect = false
@@ -95,7 +102,7 @@ class WebActivity : BaseActivity<WebViewModel, ActivityWebBinding>() {
         }
         //从收藏文章列表点进来的
         collect?.let {
-            mViewModel.ariticleId = it.originId
+            mViewModel.articleId = it.originId
             mViewModel.showTitle = it.title
             //从收藏列表过来的，肯定 是 true 了
             mViewModel.collect = true
@@ -104,11 +111,17 @@ class WebActivity : BaseActivity<WebViewModel, ActivityWebBinding>() {
         }
         //点击收藏网址列表进来的
         collectUrl?.let {
-            mViewModel.ariticleId = it.id
+            mViewModel.articleId = it.id
             mViewModel.showTitle = it.name
             //从收藏列表过来的，肯定 是 true 了
             mViewModel.collect = true
             mViewModel.url = it.link
+            mViewModel.collectType = CollectType.Url.type
+        }
+        webUrl?.let {
+            mViewModel.showTitle = webTitle?:""
+            mViewModel.url = it
+            mViewModel.collect = false
             mViewModel.collectType = CollectType.Url.type
         }
         mToolbar.run {
@@ -212,7 +225,7 @@ class WebActivity : BaseActivity<WebViewModel, ActivityWebBinding>() {
             return
         }
 
-        val id = mViewModel.ariticleId
+        val id = mViewModel.articleId
         val url = mViewModel.url
         val title = mViewModel.showTitle
 

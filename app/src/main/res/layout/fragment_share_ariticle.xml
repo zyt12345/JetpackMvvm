@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="标题"
-            android:textColor="@color/textTipColor"
+            android:textColor="@color/hint_text"
             android:textSize="10sp" />
 
         <EditText
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="链接"
-            android:textColor="@color/textTipColor"
+            android:textColor="@color/hint_text"
             android:textSize="10dp" />
 
         <EditText
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="分享人"
-            android:textColor="@color/textTipColor"
+            android:textColor="@color/hint_text"
             android:textSize="10dp" />
 
         <androidx.appcompat.widget.AppCompatTextView

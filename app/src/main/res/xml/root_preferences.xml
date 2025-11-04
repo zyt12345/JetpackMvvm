@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <androidx.preference.PreferenceCategory
         android:key="base"
@@ -9,6 +8,12 @@
             android:key="top"
             android:summary="@string/setting_top_tip"
             android:title="@string/setting_top" />
+
+        <Preference
+            android:key="theme"
+            android:summary="跟随系统"
+            android:title="切换主题" />
+
         <Preference
             android:key="clearCache"
             android:title="@string/clear_cache" />

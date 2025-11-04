@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         app:bvp_auto_play="false"
         app:bvp_can_loop="false"
-        app:bvp_indicator_checked_color="@color/accent"
+        app:bvp_indicator_checked_color="@color/colorAccent"
         app:bvp_indicator_gravity="center"
         app:bvp_indicator_normal_color="@color/white"
         app:bvp_indicator_slide_mode="worm"
@@ -26,7 +26,7 @@
     <com.noober.background.view.BLTextView
         android:id="@+id/welcomeJoin"
         app:bl_corners_radius="8dp"
-        app:bl_solid_color="@color/accent"
+        app:bl_solid_color="@color/colorPrimaryDark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"

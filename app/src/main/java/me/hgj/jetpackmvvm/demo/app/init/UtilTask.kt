@@ -2,9 +2,9 @@ package me.hgj.jetpackmvvm.demo.app.init
 
 import android.app.Application
 import cat.ereza.customactivityoncrash.config.CaocConfig
+import me.hgj.jetpackmvvm.core.init.BaseInitTask
 import me.hgj.jetpackmvvm.demo.ui.activity.ErrorActivity
 import me.hgj.jetpackmvvm.demo.ui.activity.SplashActivity
-import me.hgj.jetpackmvvm.core.init.InitTask
 
 /**
  * 作者　：hegaojian
@@ -15,7 +15,7 @@ class UtilTask(
     override val name: String = "UtilTask",
     override val runOnMainThread: Boolean = false,
     override val isBlocking: Boolean = false
-) : InitTask {
+) : BaseInitTask() {
     override suspend fun init(app: Application) {
         //防止项目崩溃，崩溃后打开错误界面
         CaocConfig.Builder.create()
