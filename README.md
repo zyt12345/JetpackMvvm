@@ -71,11 +71,12 @@ JetpackMvvm.init(application)
 - ❤️ 如果这个框架帮助到你，请帮忙点一个 ⭐ 支持一下  
 - 🌍 承接**App外包项目**，有需求可以联系我。帮人介绍的话可以给你**返点**😆
 
-| QQ交流群 | 个人微信 | 个人QQ |
-|------|------|------|
-| <img width="150" height="150" src="https://github.com/user-attachments/assets/faf8684d-790a-4b3d-8d21-6221a350d639" alt="QQ群二维码"/> | <img width="150" height="150" src="https://github.com/user-attachments/assets/ef751c37-373e-45c5-b37c-f1d523d3aa67" alt="微信二维码"/>  |<img width="150" height="150" src="https://github.com/user-attachments/assets/faf8684d-790a-4b3d-8d21-6221a350d639" alt="QQ群二维码"/>  |
+| QQ交流群 | 微信交流群 | 个人微信 | 个人QQ |
+|------|------|------|------|
+| <img width="150" height="150" src="https://github.com/user-attachments/assets/faf8684d-790a-4b3d-8d21-6221a350d639" alt="QQ群二维码"/> | <img width="150" height="150" alt="微信交流群" src="https://github.com/user-attachments/assets/2d57e911-854e-4314-a82a-ee54b8bf301d" />  | <img width="150" height="150" src="https://github.com/user-attachments/assets/ef751c37-373e-45c5-b37c-f1d523d3aa67" alt="微信二维码"/>  | <img width="150" height="150" src="https://github.com/user-attachments/assets/faf8684d-790a-4b3d-8d21-6221a350d639" alt="QQ群二维码"/>  |
 
 ---
+
 ## License
 ``` license
  Copyright 2019, hegaojian(何高建)       
