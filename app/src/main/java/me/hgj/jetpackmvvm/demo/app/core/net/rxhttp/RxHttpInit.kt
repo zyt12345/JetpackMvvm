@@ -1,4 +1,4 @@
-package me.hgj.jetpackmvvm.demo.app.core.net
+package me.hgj.jetpackmvvm.demo.app.core.net.rxhttp
 
 import me.hgj.jetpackmvvm.core.appContext
 import me.hgj.jetpackmvvm.core.net.interception.LogInterceptor

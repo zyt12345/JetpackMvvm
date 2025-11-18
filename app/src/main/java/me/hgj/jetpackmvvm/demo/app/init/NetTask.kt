@@ -2,7 +2,7 @@ package me.hgj.jetpackmvvm.demo.app.init
 
 import android.app.Application
 import me.hgj.jetpackmvvm.core.init.BaseInitTask
-import me.hgj.jetpackmvvm.demo.app.core.net.RxHttpInit
+import me.hgj.jetpackmvvm.demo.app.core.net.rxhttp.RxHttpInit
 
 /**
  * 作者　：hegaojian

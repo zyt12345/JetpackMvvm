@@ -1,8 +1,11 @@
 package me.hgj.jetpackmvvm.demo.data.vm
 
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 import me.hgj.jetpackmvvm.base.vm.BaseViewModel
 import me.hgj.jetpackmvvm.core.data.request
 import me.hgj.jetpackmvvm.core.net.LoadingType
+import me.hgj.jetpackmvvm.demo.app.core.net.retrofit.RetrofitClient
 import me.hgj.jetpackmvvm.demo.data.model.CacheConfig
 import me.hgj.jetpackmvvm.demo.data.model.entity.BannerResponse
 import me.hgj.jetpackmvvm.demo.data.repository.request.HomeRepository
@@ -37,8 +40,7 @@ class HomeViewModel : BaseViewModel() {
             //获取Banner数据 我这里给定的业务是 刷新的时候 bannerData 里面没有值 才去拿。
             val bannerDeferred = if (isRefresh && bannerData.isEmpty()) HomeRepository.getBanner().safeAsync(this) else null
             //获取置顶文章数据
-            val topDeferred = if (isRefresh && CacheConfig.showTop) HomeRepository.getTopArticle().safeAsync(this) else null
-
+            val topDeferred = if (isRefresh && CacheConfig.showTop) async { RetrofitClient.apiService.getTop() }  else null
             // 请求得到结果
             val listData = listDeferred.await()
             val banner = bannerDeferred?.await()

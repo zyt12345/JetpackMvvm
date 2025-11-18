@@ -1,4 +1,4 @@
-package me.hgj.jetpackmvvm.demo.app.core.net.parses
+package me.hgj.jetpackmvvm.demo.app.core.net.rxhttp.parses
 
 import me.hgj.jetpackmvvm.core.net.AppException
 import me.hgj.jetpackmvvm.demo.app.core.net.NetUrl
@@ -6,9 +6,7 @@ import me.hgj.jetpackmvvm.demo.app.core.util.UserManager
 import me.hgj.jetpackmvvm.demo.data.model.entity.ApiResponse
 import me.hgj.jetpackmvvm.ext.util.toast
 import okhttp3.Response
-import rxhttp.RxHttpPlugins
 import rxhttp.wrapper.annotation.Parser
-import rxhttp.wrapper.cookie.ICookieJar
 import rxhttp.wrapper.parse.TypeParser
 import rxhttp.wrapper.utils.convertTo
 import java.io.IOException
@@ -18,7 +16,7 @@ import java.lang.reflect.Type
  *
  * 作者　: hegaojian
  * 时间　: 2020/11/2
- * 描述　: 这里是根据RxHttp实现的自定义解析器，对请求到的数据做了脱壳处理，该类项目build后RxHttp会自动生成对应的方法，比如
+ * 描述　: 这里是根据RxHttp实现的自定义解析器，对请求到的数据做了解包脱壳处理，该类项目build后RxHttp会自动生成对应的方法，比如
  * toAwaitResponse,toFlowResponse。 其中 @Parser(name = "Response")中的Response 等于 toAwaitXXX 和 toFlowResponse 中的XXX
  */
 
