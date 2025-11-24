@@ -34,17 +34,13 @@
   内置常用封装：本地自动缓存、Glide 图片加载、Gson 数据解析、日志打印等，开箱即用。
   
 - 🌈 **完整示例工程，助你快速上手**   
-  基于**玩Android API** 开发了一个示例,注释非常详细，App展示框架在真实项目中的使用方式与开发流程。
+  基于**玩Android API** 开发了一个`玩安卓示例APP`,注释非常详细，App展示框架在真实项目中的使用方式与开发流程。
 ---
 
 ## 📦 玩Android示例App下载体验
-### 🔗 下载渠道
-- [🌍 GitHub 下载](https://github.com/hegaojian/JetpackMvvm/releases/download/2.0.0/app-release.apk)
-- [🚀 第三方下载](https://www.pgyer.com/jjbeautiful)
-### 📱 扫码下载（推荐）
-<p align="left">
-  <img src="https://github.com/user-attachments/assets/288a73f1-2e10-404a-8fc5-2acb9b1799ed" width="150" height="150" alt="JetpackMvvm Demo 二维码"/>
-</p>
+| 示例图 | 扫码下载 | Github下载 | 第三方下载 |
+|------|------|------|------|
+|<img width="180" height="391" alt="示例app示例图" src="https://github.com/user-attachments/assets/e1670f20-6158-4eae-9a6c-09b34b7124a9"/>|<img src="https://github.com/user-attachments/assets/288a73f1-2e10-404a-8fc5-2acb9b1799ed" width="150" height="150" alt="JetpackMvvm Demo 二维码"/>|[🌍 GitHub 下载](https://github.com/hegaojian/JetpackMvvm/releases/download/2.0.0/app-release.apk)|[🚀 第三方下载](https://www.pgyer.com/jjbeautiful)|
 
 ## 🚀 版本依赖
 ```gradle
@@ -66,7 +62,7 @@ JetpackMvvm.init(application)
 | [LiveData vs Flow](https://github.com/hegaojian/JetpackMvvm/wiki/5.Livedata%E4%B8%8EFlow%E4%BD%BF%E7%94%A8%E5%AF%B9%E6%AF%94) | LiveData vs Flow 选择指南 |
 | [常用功能封装](https://github.com/hegaojian/JetpackMvvm/wiki/6.%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD%E5%B0%81%E8%A3%85) | 常用功能封装 |
 | [常见问题](https://github.com/hegaojian/JetpackMvvm/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98) | 常见使用问题与解决方案 |
-| [网络框架加](https://github.com/hegaojian/JetpackMvvm/wiki/%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97) | 网络框架加入指南 |
+| [网络框架加入](https://github.com/hegaojian/JetpackMvvm/wiki/%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97) | 网络框架加入指南 |
 | [架构设计](https://github.com/hegaojian/JetpackMvvm/wiki/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1) | 框架架构图与核心思路 |
 
 ---
